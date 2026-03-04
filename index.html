@@ -2,35 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDAAC: United Authority and Directory of Anticlancaria</title>
+    <title>UDAAC: Anticlancaria Portal</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; }
-        .container { max-width: 700px; margin: 50px auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
-        h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
-        label { display: block; margin: 15px 0 5px; font-weight: bold; }
-        input, textarea { width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; box-sizing: border-box; }
-        .disclaimer { font-size: 0.85em; color: #8b949e; margin-top: 10px; background: #010409; padding: 10px; border-left: 3px solid #f85149; }
-        button { background-color: #238636; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 20px; width: 100%; }
-        button:hover { background-color: #2ea043; }
+        body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', monospace; padding: 40px; }
+        .box { max-width: 600px; margin: auto; background: #161b22; padding: 25px; border: 1px solid #30363d; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+        h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; text-align: center; }
+        input, textarea { width: 100%; padding: 12px; margin: 15px 0; background: #0d1117; color: #7ee787; border: 1px solid #30363d; border-radius: 4px; box-sizing: border-box; font-family: monospace; }
+        button { width: 100%; padding: 15px; background: #238636; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 4px; font-size: 1.1em; }
+        button:hover { background: #2ea043; }
+        .hint { font-size: 0.8em; color: #8b949e; margin-top: -10px; margin-bottom: 10px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>🛰️ BOA: Bot Observation Array</h2>
-        <div class="disclaimer">
-            <strong>OFFICIAL TECHNICAL ENGINEER NOTICE:</strong> Contextual summaries are required to prevent friendly fire on human users.
-        </div>
+    <div class="box">
+        <h2>🛰️ BOA DEPLOYMENT SYSTEM</h2>
+        <p style="text-align: center; font-size: 0.9em;">Official Technical Wing - Anticlancaria</p>
         
-        <form action="/hunt" method="POST">
-            <label for="video_id">YouTube Video URL or ID:</label>
-            <input type="text" id="video_id" name="video_id" placeholder="e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
+        <label>TARGET VIDEO ID:</label>
+        <input type="text" id="vid" placeholder="e.g., dQw4w9WgXcQ" required>
+        <div class="hint">* Rickroll ID detected by default as a calibration target.</div>
 
-            <label for="video_summary">Video Context Summary:</label>
-            <textarea id="video_summary" name="video_summary" rows="4" placeholder="What is the video about? (e.g., firing squad, rifle, history, tech review)" required></textarea>
-            
-            <button type="submit">DEPLOY SEARCH & DESTROY</button>
-        </form>
+        <label>CONTEXT SUMMARY (Human-Filter):</label>
+        <textarea id="sum" rows="4" placeholder="Describe the video topic (e.g., rifle, firing squad, military history)" required></textarea>
+        
+        <button onclick="deployBOA()">OPEN DEPLOYMENT ISSUE</button>
     </div>
+
+    <script>
+    function deployBOA() {
+        const videoId = document.getElementById('vid').value || "dQw4w9WgXcQ";
+        const summary = encodeURIComponent(document.getElementById('sum').value);
+        
+        // --- EDIT THESE TWO LINES ---
+        const username = "REPORT-THE-MACHINES"; // Your GitHub Username
+        const repo = "REPORT-THE-MACHINES.github.io"; // Your Repo Name
+        
+        const githubUrl = `https://github.com/${username}/${repo}/issues/new?title=${videoId}&body=${summary}`;
+        window.open(githubUrl, '_blank');
+    }
+    </script>
 </body>
 </html>
