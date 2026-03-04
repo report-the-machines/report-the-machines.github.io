@@ -2,29 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UDAAC: REPORT-THE-MACHINES Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UDAAC: United Authority and Directory of Anticlancaria</title>
     <style>
-        body { font-family: monospace; background-color: #0d1117; color: #c9d1d9; padding: 20px; }
-        .container { max-width: 800px; margin: auto; border: 1px solid #30363d; padding: 20px; border-radius: 6px; }
-        textarea, input { width: 100%; background: #161b22; border: 1px solid #30363d; color: white; padding: 10px; margin-top: 10px; border-radius: 4px; }
-        button { background-color: #238636; color: white; padding: 10px 20px; border: none; cursor: pointer; margin-top: 10px; font-weight: bold; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d1117; color: #c9d1d9; line-height: 1.6; }
+        .container { max-width: 700px; margin: 50px auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; box-shadow: 0 4px 12px rgba(0,0,0,0.5); }
+        h2 { color: #58a6ff; border-bottom: 1px solid #30363d; padding-bottom: 10px; }
+        label { display: block; margin: 15px 0 5px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; background: #0d1117; border: 1px solid #30363d; color: white; border-radius: 4px; box-sizing: border-box; }
+        .disclaimer { font-size: 0.85em; color: #8b949e; margin-top: 10px; background: #010409; padding: 10px; border-left: 3px solid #f85149; }
+        button { background-color: #238636; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: bold; margin-top: 20px; width: 100%; }
         button:hover { background-color: #2ea043; }
-        label { font-weight: bold; color: #58a6ff; }
     </style>
 </head>
 <body>
     <div class="container">
         <h2>🛰️ BOA: Bot Observation Array</h2>
-        <form action="/hunt" method="post">
-            <label for="video_id">Target Video ID or URL:</label>
-            <input type="text" id="video_id" name="video_id" placeholder="e.g., dQw4w9WgXcQ" required>
+        <div class="disclaimer">
+            <strong>OFFICIAL TECHNICAL ENGINEER NOTICE:</strong> Contextual summaries are required to prevent friendly fire on human users.
+        </div>
+        
+        <form action="/hunt" method="POST">
+            <label for="video_id">YouTube Video URL or ID:</label>
+            <input type="text" id="video_id" name="video_id" placeholder="e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ" required>
 
-            <label for="video_summary" style="display: block; margin-top: 20px;">Video Context Summary (Human-Detection Filter):</label>
-            <textarea id="video_summary" name="video_summary" rows="4" placeholder="Describe the video topic (e.g., rifle, firing squad, empty chamber, military history)"></textarea>
+            <label for="video_summary">Video Context Summary:</label>
+            <textarea id="video_summary" name="video_summary" rows="4" placeholder="What is the video about? (e.g., firing squad, rifle, history, tech review)" required></textarea>
             
-            <p><small>* The BOA uses this summary to distinguish between fans talking about the video and generic bot scripts.</small></p>
-            
-            <button type="submit">DEPLOY SCAN</button>
+            <button type="submit">DEPLOY SEARCH & DESTROY</button>
         </form>
     </div>
 </body>
